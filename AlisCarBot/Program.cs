@@ -29,7 +29,7 @@ namespace AlisCarBot {
                     //.StartAt(DateBuilder.EvenSecondDate(DateTimeOffset.Now.AddSeconds(5)))
                     .StartAt(today.AddDays(((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7))
                     .WithSimpleSchedule(x => x
-                        .WithIntervalInHours(1)
+                        .WithIntervalInHours(168)
                         .RepeatForever())
                     .WithDescription("Handles Patreon sync for the predefined interval")
                 );

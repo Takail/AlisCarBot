@@ -41,6 +41,7 @@ namespace AlisCarBot.Jobs {
                 return;
             }
             await timeChannel.SendMessageAsync(stringBuilder.ToString());
+            TimerHelper.SaveNewTimes([]);
         }
     }
 }

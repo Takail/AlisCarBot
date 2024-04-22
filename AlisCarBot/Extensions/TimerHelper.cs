@@ -12,7 +12,7 @@ namespace AlisCarBot.Extensions {
         public static List<SavedTicksObject> GetAllSavedTimes() {
             return JsonConvert.DeserializeObject<List<SavedTicksObject>>(File.ReadAllText("savedtimes.json")) ?? [];
         }
-        private static void SaveNewTimes(List<SavedTicksObject> newSave) => File.WriteAllText("savedtimes.json", JsonConvert.SerializeObject(newSave));
+        public static void SaveNewTimes(List<SavedTicksObject> newSave) => File.WriteAllText("savedtimes.json", JsonConvert.SerializeObject(newSave));
         public static long GetTicksFromDiscordUserId(this SocketUser user) => GetAllSavedTimes().FirstOrDefault(o => o.DiscordId == user.Id)?.TotalWeeklyTicks ?? 0;
 
         public static void SaveTicksForDiscordId(this SocketUser discordUser, long ticks) {
